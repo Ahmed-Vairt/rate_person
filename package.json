@@ -1,0 +1,31 @@
+{
+  "name": "node-mvc",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "express-formidable": "^1.0.0",
+    "file-type": "^8.0.0",
+    "formidable": "^1.2.1",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.1.6",
+    "morgan": "~1.9.0",
+    "multer": "^1.3.0",
+    "pug": "2.0.0-beta11",
+    "random-number": "0.0.9",
+    "read-chunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0",
+    "nodemon": "^1.17.5"
+  }
+}

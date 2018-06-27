@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate App</title>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<h2 style="color: white;text-align: center">Add & Rate Person</h2>
+
+<div id="todo-table">
+
+    <form enctype="multipart/form-data">
+        <input type="text" id="item" placeholder="Add new person...." required/>
+        <input type="text" id="desc" placeholder="Add person desc...." required/>
+        <input style="display: none" type="text" id="rate"/>
+
+        <h3>Rate this person</h3>
+        <img id="rate_1" onclick="getvalue(1,1)" src="/images/star.png">
+        <img id="rate_2" onclick="getvalue(2,2)" src="/images/star.png">
+        <img id="rate_3" onclick="getvalue(3,3)" src="/images/star.png">
+        <img id="rate_4" onclick="getvalue(4,4)" src="/images/star.png">
+        <img id="rate_5" onclick="getvalue(5,5)" src="/images/star.png">
+
+        <div class="panel-body">
+            <span class="glyphicon glyphicon-cloud-upload"></span>
+            <h2 style="margin-top: 5%;">No Image</h2>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"></div>
+            </div>
+            <input style="display: none" type="text" id="file_name"/>
+            <button class="btn btn-lg upload-btn" type="button">Upload</button>
+        </div>
+        <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+
+        <button id="submit_button" type="submit" style="margin-top: 5%;">Add New Person</button>
+    </form>
+
+
+
+
+
+    <table id="tableId">
+        <tr>
+            <th>Images</th>
+            <th>Name</th>
+            <th>Desc</th>
+            <th>Rating</th>
+            <th>Edit</th>
+            <!--<th>Rating 2</th>-->
+        </tr>
+
+        <% for (var i=0; i<todos.length; i++) { %>
+        <tr id="<%= todos[i].id %>" >
+            <td><img src="/uploads/<%= todos[i].file_name%>" ></td>
+            <td><%= todos[i].item %></td>
+            <td><%= todos[i].desc %></td>
+            <td><% for (var r=1; r<=todos[i].rate; r++) { %> <img value="<%=r %>" src="/images/star.png"> <% } %></td>
+            <td><img onclick="deleteRow('<%= todos[i].id %>')" src="/images/trash.png"></td>
+            <!--<td><img id="rate_1" onclick="getvalue('<%= todos[i].id %>',1)" src="/images/star.png">-->
+            <!--<img id="rate_2" onclick="getvalue('<%= todos[i].id %>',2)" src="/images/star.png">-->
+            <!--<img id="rate_3" onclick="getvalue('<%= todos[i].id %>',3)" src="/images/star.png">-->
+            <!--<img id="rate_4" onclick="getvalue('<%= todos[i].id %>',4)" src="/images/star.png">-->
+            <!--<img id="rate_5" onclick="getvalue('<%= todos[i].id %>',5)" src="/images/star.png"></td>-->
+        </tr>
+        <% } %>
+
+    </table>
+
+</div>
+</body>
+</html>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/javascripts/upload.js"></script>
+<script src="/javascripts/star_anim.js"></script>
+<script src="/javascripts/ajax.js"></script>
